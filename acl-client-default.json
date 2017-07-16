@@ -1,0 +1,5 @@
+{
+	"Name":"acl-default",
+	"Type":"client",
+	"Rules":"{ \"key\":{ \"\":{ \"policy\":\"read\" } }, \"agent\":{ \"\":{ \"policy\":\"read\" }},\"event\":{ \"\":{ \"policy\":\"read\" } }, \"node\":{ \"\":{ \"policy\":\"write\" } },\"query\":{ \"\":{ \"policy\":\"read\" } }, \"service\":{ \"\":{ \"policy\":\"read\" } },\"session\":{ \"\":{ \"policy\":\"read\" } }, \"keyring\":\"read\", \"operator\":\"read\" }"
+}

@@ -1,0 +1,16 @@
+{
+	"datacenter":"dc1",
+	"data_dir":"/consul/data",
+	"log_level":"INFO",
+	"node_name":"client-1",
+	"ui":true,
+	"encrypt":"2zCAu5bA5exHi3I/S5u+8g==",
+	"client_addr":"192.168.1.104",
+	"retry_join":[
+		"192.168.1.101"
+	],
+	"acl_datacenter":"dc1",
+	"acl_default_policy":"deny",
+	"acl_down_policy":"extend-cache",
+	"acl_token":"consul-bootstrap-default"
+}

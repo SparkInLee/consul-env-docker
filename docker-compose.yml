@@ -1,0 +1,61 @@
+version: '2.1'
+
+services:
+  consul-server-1:
+    container_name: consul-server-1
+    image: consul:0.8.5
+    command: consul agent -config-dir=/consul/config 
+    volumes:
+      - ./conf/server-1:/consul/config
+      - ./data/server-1:/consul/data
+      - ./script:/consul/script
+    networks:
+      app_net:
+        ipv4_address: 192.168.1.101
+  consul-server-2:
+    container_name: consul-server-2
+    image: consul:0.8.5
+    command: consul agent -config-dir=/consul/config 
+    volumes:
+      - ./conf/server-2:/consul/config
+      - ./data/server-2:/consul/data
+      - ./script:/consul/script
+    networks:
+      app_net:
+        ipv4_address: 192.168.1.102
+  consul-server-3:
+    container_name: consul-server-3
+    image: consul:0.8.5
+    command: consul agent -config-dir=/consul/config 
+    volumes:
+      - ./conf/server-3:/consul/config
+      - ./data/server-3:/consul/data
+      - ./script:/consul/script
+    networks:
+      app_net:
+        ipv4_address: 192.168.1.103
+  consul-client-1:
+    container_name: consul-client-1
+    image: consul:0.8.5
+    command: consul agent -config-dir=/consul/config 
+    ports:
+      - "8500:8500"
+      - "8600:8600"
+      - "8400:8400"
+    volumes:
+      - ./conf/client-1:/consul/config
+      - ./data/client-1:/consul/data
+      - ./script:/consul/script
+    networks:
+      app_net:
+        ipv4_address: 192.168.1.104
+
+networks:
+  app_net:
+    driver: bridge
+    enable_ipv6: false
+    ipam:
+      driver: default
+      config:
+        - subnet: 192.168.1.0/24
+          gateway: 192.168.1.1
